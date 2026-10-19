@@ -1,6 +1,6 @@
 # GBMar · Central de Links
 
-Central estática publicada no GitHub Pages. Assistente **GBMar IA v2**, com base editorial de 27 serviços (21 links ativos e 6 espaços em preparação).
+Central estática publicada no GitHub Pages. Assistente **GBMar IA v3**, com base editorial de 27 serviços (21 links ativos e 6 espaços em preparação).
 
 ## Funcionamento e custo das respostas
 
@@ -13,9 +13,9 @@ Central estática publicada no GitHub Pages. Assistente **GBMar IA v2**, com bas
 
 ## Base e capacidades
 
-`gbmar-conhecimento.js` contém identificação, aliases, finalidade, etapas, condições de acesso, limitações e perguntas específicas por serviço. `gbmar-motor.js` interpreta intenções, plurais, acentos, sinônimos, pequenos erros de digitação e perguntas de continuidade. Quando necessário, pede a escolha entre serviços. Não é um LLM e não aprende automaticamente.
+`gbmar-conhecimento.js` contém identificação, aliases, finalidade, etapas, condições de acesso, limitações e perguntas específicas por serviço. `gbmar-motor.js` separa assunto e intenção, interpreta plurais, acentos, sinônimos, pequenos erros de digitação, correções, perguntas com mais de um tema e continuações. A conversa mantém estado apenas em memória. A base tem 150 perguntas de referência, público, requisitos e escopo de revisão por serviço. Quando necessário, pede a escolha entre serviços. Não é um LLM e não aprende automaticamente.
 
-A área **Ler texto** aceita até 30.000 caracteres ou TXT de até 128 KB (também limitado a 30.000 caracteres). O resumo é extrativo: seleciona frases do texto, sem acrescentar informação externa. Uma pergunta opcional filtra os trechos por assunto. Não lê imagens, PDFs, documentos externos ou conteúdo autenticado.
+A área **Ler texto** aceita até 30.000 caracteres ou TXT de até 128 KB (também limitado a 30.000 caracteres). O resumo é extrativo (`gbmar-leitura.js`): mostra trechos literais com linhas e intervalos verificáveis, sem acrescentar informação externa. Preserva condições e exceções próximas. Datas, quantidades e conectivos condicionais são destacados; um botão seleciona o trecho na origem. Perguntas que alegam valores ausentes não recebem confirmação. Uma pergunta opcional filtra os trechos por assunto. Não lê imagens, PDFs, documentos externos ou conteúdo autenticado.
 
 A área **Sobre e fontes** lista todos os serviços, a origem da orientação e os limites de leitura. Não foram copiados dados operacionais internos, saldos, senhas, escalas ou células das planilhas.
 
@@ -39,11 +39,11 @@ As referências externas estão nos próprios cartões da Central. As descriçõ
 1. Atualizar a finalidade/FAQ em `gbmar-conhecimento.js` apenas com fonte verificável e conteúdo publicável.
 2. Preservar a correspondência entre `match` e os títulos em `index.html`.
 3. Atualizar a data editorial somente após a revisão pertinente. Não afirmar que páginas restritas foram lidas.
-4. Executar `node tests/assistant.test.cjs` e `node tests/video.test.cjs`.
+4. Executar `node tests/assistant.test.cjs`, `node tests/quality.test.cjs` e `node tests/video.test.cjs`. A comparação reproduzível com a versão anterior usa `node tests/compare.cjs`.
 5. Atualizar a versão dos scripts e CSS em `index.html` quando houver nova entrega.
 
 ## Validação desta versão
 
-84 verificações do motor, base, catálogo, ausência de clientes de rede e isolamento da busca principal. Teste da geração de vídeo com APIs simuladas cobre conclusão, cancelamento, erro e encerramento dos recursos; não comprova codecs reais.
+84 verificações anteriores e 201 novas passaram. Nos 20 cenários comparativos, a v2 atendeu a 6 e a v3 a 20. Este resultado se limita ao conjunto de teste, não mede precisão geral. Consulte [VALIDACAO_V3.md](docs/VALIDACAO_V3.md). Teste da geração de vídeo com APIs simuladas cobre conclusão, cancelamento, erro e encerramento dos recursos; não comprova codecs reais.
 
-A sintaxe JavaScript e a integridade dos arquivos foram verificadas. Revisão visual e execução em navegador real não estavam disponíveis no ambiente desta entrega; layout responsivo, leitura em voz alta e gravação de vídeo precisam de confirmação no aparelho de destino. O recurso de vídeo tem fallback para guia visual quando não há suporte.
+A sintaxe JavaScript e a integridade dos arquivos foram verificadas. O painel usa `gbmar-layout.js` para adaptar sua altura ao viewport visual e ao teclado virtual, com fallback CSS. A geometria foi testada em cinco tamanhos; confirmação em aparelho físico e outros navegadores continua necessária. O recurso de vídeo tem fallback para guia visual quando não há suporte. A verificação da interface publicada é registrada em `docs/QA_NAVEGADOR_V3.md` após a implantação.

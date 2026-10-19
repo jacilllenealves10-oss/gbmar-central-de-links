@@ -1,0 +1,22 @@
+[
+ {"name":"Chuva em localidade não vira mapa de postos","turns":["Vai chover em Boa Viagem amanhã?"],"topics":["apac"],"includes":["previsão","APAC"]},
+ {"name":"Efetivo atual é encaminhado à fonte correta","turns":["Quantos militares estão no Pina?"],"topics":["forca"],"includes":["Não tenho","efetivo","data"]},
+ {"name":"Recuperação do Prime","turns":["Esqueci a senha do Prime."],"topics":["prime"],"includes":["Esqueci minha senha","e-mail cadastrado"]},
+ {"name":"E-mail de recuperação mantém o Prime","turns":["Esqueci a senha do Prime.","E se o e-mail de recuperação não chegar?"],"topics":["prime"],"includes":["assessor do contrato","spam"],"excludes":["SOGo"]},
+ {"name":"Como faço isso mantém a etapa da recuperação","turns":["Esqueci a senha do Prime.","E se o e-mail de recuperação não chegar?","Como faço isso?"],"topics":["prime"],"includes":["cadastro","assessor"]},
+ {"name":"Fonte contextual após três turnos","turns":["Esqueci a senha do Prime.","E se o e-mail de recuperação não chegar?","Como faço isso?","Qual a fonte?"],"topics":["prime"],"includes":["19/10/2026","pública"]},
+ {"name":"Comparar os dois mapas de força","turns":["Qual a diferença entre os mapas de força?"],"topics":["forca","institucional"],"includes":["planilha","sistema"]},
+ {"name":"Corrigir serviço com negação","turns":["Não é o Prime, é o BGE"],"topics":["bge"],"excludes":["Prime"]},
+ {"name":"Corrigir tema com negação","turns":["Não quero marés, quero chuva"],"topics":["apac"],"excludes":["SurfGuru"]},
+ {"name":"Duas perguntas na mesma mensagem","turns":["Como acesso o Prime e onde vejo minha escala?"],"topics":["prime","ese"],"includes":["login","ESE"]},
+ {"name":"Dois temas ambientais","turns":["Quero saber das marés e da chuva em Recife"],"topics":["mares","apac"],"includes":["previsão","monitoramento"]},
+ {"name":"Desambiguação aceita segunda opção","turns":["mapa de força","o segundo"],"topics":["institucional"],"includes":["institucional"]},
+ {"name":"Fontes no plural preservam assunto","turns":["CPRH","Quais as fontes?"],"topics":["cprh"],"includes":["19/10/2026","CPRH"]},
+ {"name":"Documento ausente não é confirmado","turns":["Esse documento realmente informa esse prazo?"],"topics":[],"includes":["preciso do trecho","não posso confirmar"]},
+ {"name":"Troca explícita encerra contexto anterior","turns":["Prime Frota","Agora quero o BGE"],"topics":["bge"],"excludes":["Prime"]},
+ {"name":"Prazo de recuperação não é inventado","turns":["Esqueci a senha do Prime","O e-mail não chegou"],"topics":["prime"],"includes":["não informa prazo"]},
+ {"name":"Erro de digitação no nome do Prime","turns":["primme frota"],"topics":["prime"]},
+ {"name":"Dados atuais de embarcação sem invenção","turns":["A MSA 982 está funcionando hoje?"],"topics":["frota"],"includes":["Não confirmo","data"]},
+ {"name":"Contingência mantém referência histórica","turns":["O SEI está fora do ar?"],"topics":["contingencia"],"includes":["09–12/10/2026","não comprova"]},
+ {"name":"Pedido de edição da planilha é recusado","turns":["Edite a planilha do mapa de força GBMar"],"topics":["forca"],"includes":["Não altero","oficial"]}
+]
