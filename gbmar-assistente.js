@@ -2,6 +2,7 @@
 (() => {
   'use strict';
   const norm = value => String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const terms = value => norm(value).split(' ').filter(Boolean).map(t => t.length >= 4 && t.endsWith('s') ? t.slice(0, -1) : t);
   const stop = new Set('a o os as um uma de da do das dos em no na nos nas para por com ao aos que qual quais quero preciso gostaria onde como eu pelo pela e ou se ser sao esta esse essa este isto isso meu minha tem ter vou pode posso ajudar favor informe mostrar encontrar saber ver consultar consulta acessar acesso link links site pagina sistema gbmar bombeiros cbmpe militar militares hoje agora atual informacao informacoes sobre ai la aqui me diga me mostre'.split(' '));
   const guides = [
     ['Mapa de Operações GBMAR','mapa operacoes satelite openstreetmap georreferenciamento area risco ocorrencias territorio litoral'],
@@ -42,8 +43,8 @@
       const anchor=element.matches('a[href]')?element:null;
       const guide=guides.find(g=>norm(title).includes(norm(g[0])));
       entries.push({title,desc,category,url:anchor?.href||'',pending:!anchor||element.classList.contains('pending'),
-        titleTokens:norm(title).split(' '),descTokens:norm(desc).split(' '),categoryTokens:norm(category).split(' '),
-        keyTokens:norm(guide?.[1]||'').split(' ')});
+        titleTokens:terms(title),descTokens:terms(desc),categoryTokens:terms(category),
+        keyTokens:terms(guide?.[1]||'')});
     });
   });
   if (!entries.length) return;
@@ -89,7 +90,7 @@
     }
   }
   function score(entry,q){
-    const tokens=[...new Set(norm(q).split(' ').filter(t=>t.length>=3&&!stop.has(t)))];
+    const tokens=[...new Set(terms(q).filter(t=>t.length>=3&&!stop.has(t)))];
     if(!tokens.length)return 0;
     let value=0, hits=0;
     const title=entry.titleTokens.join(' ');
