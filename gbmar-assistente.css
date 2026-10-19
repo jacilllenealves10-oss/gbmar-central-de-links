@@ -1,0 +1,37 @@
+/* GBMar IA — interface local, sem bibliotecas ou APIs externas. */
+.gbai-toggle{position:fixed;right:21px;bottom:20px;z-index:9997;display:flex;align-items:center;gap:10px;padding:13px 17px;border-radius:99px;border:1px solid #8ae2ee;background:#0a617c;color:#fff;font:700 15px Arial,Helvetica,sans-serif;box-shadow:0 8px 28px #001320b8;cursor:pointer;transition:transform .18s,background .18s}
+.gbai-toggle:hover,.gbai-toggle:focus-visible{background:#107d9c;transform:translateY(-2px);outline-offset:3px}
+.gbai-toggle-icon{font-size:22px;line-height:1}
+.gbai-panel{position:fixed;bottom:86px;right:21px;z-index:9998;width:min(420px,calc(100vw - 24px));height:min(625px,calc(100dvh - 110px));display:flex;flex-direction:column;overflow:hidden;border:1px solid #3989a7;border-radius:20px;background:#081f34;box-shadow:0 20px 60px #000b17d9;color:#effbff;font:14px/1.48 Arial,Helvetica,sans-serif}
+.gbai-hidden{display:none!important}
+.gbai-panel *{box-sizing:border-box}
+.gbai-header{display:flex;gap:11px;align-items:center;background:#0d3a54;padding:14px 14px 12px;border-bottom:1px solid #32738a}
+.gbai-avatar{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:12px;background:#146783;font-size:23px}
+.gbai-header-copy{min-width:0;flex:1}
+.gbai-header strong{font-size:15px;display:block;line-height:1.25}
+.gbai-header small{display:block;color:#c2e1eb;font-size:11px;margin-top:3px}
+.gbai-header-actions{display:flex;gap:4px}
+.gbai-icon-btn{flex:none;display:grid;place-items:center;width:32px;height:32px;border:1px solid transparent;background:transparent;color:#d4eef5;border-radius:9px;font-size:20px;cursor:pointer}
+.gbai-icon-btn:hover,.gbai-icon-btn:focus-visible{background:#20536c;border-color:#437a92}
+.gbai-notice{border-bottom:1px solid #23506a;background:#0b2d45;color:#c7e3ed;font-size:11px;line-height:1.5;padding:10px 14px}
+.gbai-messages{flex:1;min-height:80px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;gap:13px;padding:17px 13px 14px;scrollbar-color:#407c95 transparent}
+.gbai-message{display:flex;flex-direction:column;gap:5px;max-width:95%;align-self:flex-start;min-width:0}
+.gbai-message.gbai-user{align-self:flex-end;max-width:85%}
+.gbai-bubble{background:#163d58;border:1px solid #295873;border-radius:14px 14px 14px 4px;padding:11px 12px;color:#e9f5fa;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}
+.gbai-user .gbai-bubble{background:#166985;border-color:#2a8ba5;border-radius:14px 14px 4px 14px;color:#fff}
+.gbai-source{display:flex;align-items:flex-start;gap:7px;border-radius:10px;border:1px solid #396f84;background:#0e2e45;color:#e6f9ff!important;text-decoration:none!important;padding:9px 10px;line-height:1.4;font-size:12px;overflow-wrap:anywhere}
+.gbai-source:hover,.gbai-source:focus-visible{background:#174966;border-color:#5ab6d0}
+.gbai-source .gbai-source-icon{flex:none;line-height:1.4}
+.gbai-source span:last-child{flex:1}
+.gbai-chips{display:flex;flex-wrap:wrap;gap:7px;padding:0 13px 12px}
+.gbai-chip{border:1px solid #3a748f;background:#11344f;color:#eafaff;border-radius:20px;padding:7px 10px;font:12px/1.35 Arial,Helvetica,sans-serif;cursor:pointer;text-align:left}
+.gbai-chip:hover,.gbai-chip:focus-visible{background:#1a5572;border-color:#65c0da}
+.gbai-input-area{display:flex;gap:7px;align-items:end;padding:11px 12px;border-top:1px solid #2f617c;background:#0d2e47}
+.gbai-input{flex:1;min-width:0;min-height:41px;max-height:108px;resize:vertical;padding:10px 11px;border-radius:11px;border:1px solid #4c8297;background:#071e31;color:#fff;font:13px/1.45 Arial,Helvetica,sans-serif}
+.gbai-input::placeholder{color:#b6cfd9}
+.gbai-input:focus-visible{outline:2px solid #83cfe7;outline-offset:1px}
+.gbai-send{flex:none;min-height:42px;padding:0 13px;border:1px solid #60bad1;border-radius:11px;background:#127b98;color:#fff;font:700 13px Arial,Helvetica,sans-serif;cursor:pointer}
+.gbai-send:hover,.gbai-send:focus-visible{background:#2396b4}
+.gbai-footer{padding:7px 10px;text-align:center;color:#a9cedb;background:#081f34;font-size:10px;line-height:1.35}
+@media(max-width:520px){.gbai-toggle{right:12px;bottom:12px;padding:12px 14px}.gbai-panel{right:8px;bottom:74px;width:calc(100vw - 16px);height:min(660px,calc(100dvh - 94px));border-radius:17px}.gbai-header{padding:11px 12px}.gbai-messages{padding:12px 10px}.gbai-notice{padding:8px 11px}}
+@media(prefers-reduced-motion:reduce){.gbai-toggle{transition:none}}
