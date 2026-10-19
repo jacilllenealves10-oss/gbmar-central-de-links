@@ -96,7 +96,7 @@ Depois: Prime Frota Use o link de Prime Frota indicado abaixo.  1. Abra o Prime 
 ## Verificações adicionais
 
 - 84 verificações anteriores: preservadas.
-- 201 verificações novas: intenções das fichas, contexto, negações, múltiplos assuntos, evidências literais e limites de viewport.
+- 202 verificações novas: intenções das fichas, contexto, negações, múltiplos assuntos, evidências literais e limites de viewport.
 - Vídeo: conclusão, cancelamento, erro e encerramento dos recursos cobertos com APIs simuladas.
 - Sem clientes de rede, telemetria ou persistência em módulos de produção. Política connect-src none preservada.
 - A conferência em navegador real e a publicação são registradas após a entrega.

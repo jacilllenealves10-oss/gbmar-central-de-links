@@ -70,7 +70,8 @@
       return [...e.names,...e.phrases].some(p=>{if(p.length<3)return false;const at=(' '+q+' ').indexOf(' '+p+' ');if(at<0)return false;const before=q.slice(Math.max(0,at-65),at).trim();return /\bnao (?:quero|e|era|quis|falei de|estou falando de)(?: (?:o|a|do|da|sobre))?\s*$/.test(before)||/\bsem (?:o|a)?\s*$/.test(before);});
     }
     function rank(question){
-      const q=canonical(question),ts=tokens(q);
+      // “Não sei” é uma expressão verbal; só outra menção explícita identifica o SEI.
+      const q=canonical(question).replace(/\bnao sei\b/g,'nao conheco'),ts=tokens(q);
       const results=entries.map(e=>{
         if(negative(e,q))return {entry:e,score:0,coverage:0,named:false,direct:0};
         const nameHits=e.names.filter(p=>has(q,p));

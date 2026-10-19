@@ -4,6 +4,7 @@ const kb=require('../gbmar-conhecimento'),{create}=require('../gbmar-motor'),rea
 const html=fs.readFileSync(path.join(__dirname,'../index.html'),'utf8'),catalog=[...html.matchAll(/<(a|div)\b([^>]*class="item[^>]*?)>([\s\S]*?)<\/\1>/g)].map(m=>({title:m[3].match(/class="name">(.*?)<\/span>/)?.[1]||'',url:m[2].match(/href="([^"]+)"/)?.[1].replaceAll('&amp;','&')||''}));
 const ai=create(kb,catalog);let total=0,passed=0;
 function check(name,fn){total++;try{fn();passed++;}catch(e){console.error('FAIL '+name+': '+e.message);process.exitCode=1;}}
+check('Não sei verbal não significa sistema SEI',()=>{ai.reset();assert(!ai.answer('Não sei minha senha').topics.includes('sei'));ai.reset();assert.deepEqual(ai.answer('Não sei entrar no SEI').topics,['sei']);ai.reset();ai.answer('Esqueci a senha do Prime');assert.deepEqual(ai.answer('Não sei minha senha').topics,['prime']);});
 for(const c of require('./fixtures/quality-scenarios.json'))check(c.name,()=>{ai.reset();let r;for(const q of c.turns)r=ai.answer(q);assert.deepEqual([...r.topics].sort(),[...c.topics].sort(),r.text);for(const s of c.includes||[])assert(r.text.toLowerCase().includes(s.toLowerCase()),r.text);for(const s of c.excludes||[])assert(!r.text.toLowerCase().includes(s.toLowerCase()),r.text);});
 for(const e of kb.entries){
  check('Ficha completa: '+e.id,()=>{assert(e.audience&&e.requirements.length&&e.evidenceDetails&&e.reviewed&&e.limit);assert.equal(e.evidenceDetails.authenticatedContentRead,false);});

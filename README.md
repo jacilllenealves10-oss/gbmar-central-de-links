@@ -44,6 +44,6 @@ As referências externas estão nos próprios cartões da Central. As descriçõ
 
 ## Validação desta versão
 
-84 verificações anteriores e 201 novas passaram. Nos 20 cenários comparativos, a v2 atendeu a 6 e a v3 a 20. Este resultado se limita ao conjunto de teste, não mede precisão geral. Consulte [VALIDACAO_V3.md](docs/VALIDACAO_V3.md). Teste da geração de vídeo com APIs simuladas cobre conclusão, cancelamento, erro e encerramento dos recursos; não comprova codecs reais.
+84 verificações anteriores e 202 novas passaram. Nos 20 cenários comparativos, a v2 atendeu a 6 e a v3 a 20. Este resultado se limita ao conjunto de teste, não mede precisão geral. Consulte [VALIDACAO_V3.md](docs/VALIDACAO_V3.md). Teste da geração de vídeo com APIs simuladas cobre conclusão, cancelamento, erro e encerramento dos recursos; não comprova codecs reais.
 
 A sintaxe JavaScript e a integridade dos arquivos foram verificadas. O painel usa `gbmar-layout.js` para adaptar sua altura ao viewport visual e ao teclado virtual, com fallback CSS. A geometria foi testada em cinco tamanhos; confirmação em aparelho físico e outros navegadores continua necessária. O recurso de vídeo tem fallback para guia visual quando não há suporte. A verificação da interface publicada é registrada em `docs/QA_NAVEGADOR_V3.md` após a implantação.
