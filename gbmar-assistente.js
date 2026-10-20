@@ -91,7 +91,7 @@
     const bubble=el('div','gbai-bubble',text);item.append(bubble);
     if(result.sources?.length){const links=el('div','gbai-sources');result.sources.forEach(e=>links.append(sourceLink(e)));item.append(links);}
     if(role!=='user'){
-      if(result.steps?.length)item.append(button('Guia visual · '+result.steps.length+' passos',()=>showGuide(item,result.steps,result.sources?.[0]?.title||'Consulta'),'gbai-guide-button'));
+      if(result.steps?.length)item.append(button('Guia de acesso · '+result.steps.length+' passos',()=>showGuide(item,result.steps,'Como acessar '+(result.sources?.[0]?.title||'o serviço')),'gbai-guide-button'));
       addActions(item,text);if(result.sources?.length)addVideo(item,text);
       if(result.sources?.length){const proof=el('details','gbai-proof');proof.append(el('summary','','Base da resposta'));result.sources.forEach(e=>proof.append(el('p','',e.title+': '+e.evidence)));item.append(proof);}
     }
